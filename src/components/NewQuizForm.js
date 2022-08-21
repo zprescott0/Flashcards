@@ -3,14 +3,20 @@ import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import ROUTES from "../app/routes";
 
+import { addQuizToTopic, selectTopics } from "../features/topics/topicsSliceData";
+import { useDispatch, useSelector } from 'react-redux';
+
 export default function NewQuizForm() {
   const [name, setName] = useState("");
   const [cards, setCards] = useState([]);
   const [topicId, setTopicId] = useState("");
   const history = useHistory();
-  const topics = {};
+  const topics = useSelector(selectTopics);
+
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
     if (name.length === 0) {
       return;
