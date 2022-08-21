@@ -20,7 +20,7 @@ export const selectQuizzes = state => state.quizzes.quizzes;
 export const { addQuiz } = quizzesSlice.actions;
 export default quizzesSlice.reducer;
 
-const addQuizToQuizzesAndTopics = (data) => {
+export const addQuizToQuizzesAndTopics = (data) => {
     return async (dispatch) => {
         const quizData = {
             id: data.id,
