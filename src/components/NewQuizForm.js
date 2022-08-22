@@ -17,6 +17,7 @@ export default function NewQuizForm() {
 
   const dispatch = useDispatch();
 
+
   const handleSubmit = (e) => {
 
     e.preventDefault();
@@ -26,16 +27,19 @@ export default function NewQuizForm() {
 
     const cardIds = [];
     let newCardId = '';
+    let newCard = {};
 
     // create the new cards here and add each card's id to cardIds
     cards.map(card => {
       newCardId = uuidv4();
       cardIds.push(newCardId);
-      dispatch(addCard({
+      newCard = {
         id: newCardId,
         front: card.front,
         back: card.back
-      }));
+      };
+
+      dispatch(addCard(newCard));
     })
 
     // create the new quiz here
