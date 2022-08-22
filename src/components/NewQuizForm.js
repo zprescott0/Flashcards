@@ -25,8 +25,19 @@ export default function NewQuizForm() {
     }
 
     const cardIds = [];
+    let newCardId = '';
 
     // create the new cards here and add each card's id to cardIds
+    cards.map(card => {
+      newCardId = uuidv4();
+      cardIds.push(newCardId);
+      dispatch(addCard({
+        id: newCardId,
+        front: card.front,
+        back: card.back
+      }));
+    })
+
     // create the new quiz here
     dispatch(addQuizToQuizzesAndTopics({
       id: uuidv4(),
