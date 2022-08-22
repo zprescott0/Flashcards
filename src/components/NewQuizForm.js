@@ -5,6 +5,7 @@ import ROUTES from "../app/routes";
 
 import { selectTopics } from "../features/topics/topicsSliceData";
 import { addQuizToQuizzesAndTopics } from "../features/quizzes/quizSliceData";
+import { addCard } from "../features/cards/cardSliceData";
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function NewQuizForm() {
